@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Portfolio | UI/UX Designer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #2a0052, #6d287b);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideLeft {
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatImage {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-20px);
+      }
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #ff4de6;
+      transform: scale(1.1);
+    }
+
+    .main-section,
+    .about-section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 60px 50px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .text-content h2 {
+      font-size: 18px;
+      color: #ff4de6;
+      margin-bottom: 10px;
+    }
+
+    .text-content h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+      animation: slideLeft 1s ease-in-out;
+    }
+
+    .text-content h3 {
+      font-size: 30px;
+      color: #ff4de6;
+      margin-bottom: 20px;
+    }
+
+    .text-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .buttons a {
+      padding: 12px 20px;
+      margin-right: 15px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .btn-primary {
+      background-color: white;
+      color: black;
+    }
+
+    .btn-secondary {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .buttons a:hover {
+      transform: scale(1.1);
+      background-color: #ff4de6;
+      color: white;
+    }
+
+    .social-icons a {
+      color: white;
+      margin-right: 15px;
+      font-size: 24px;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: rotate(15deg) scale(1.3);
+    }
+
+    .image-container img,
+    .about-image img {
+      width: 300px;
+      border-radius: 50%;
+      box-shadow: 0 0 25px #ff4de6;
+      animation: floatImage 3s infinite alternate ease-in-out;
+    }
+
+    .about-content {
+      max-width: 600px;
+      animation: slideIn 1.5s ease-in-out;
+    }
+
+    .about-content h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .skills {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .skills span {
+      background-color: #ff4de6;
+      padding: 8px 15px;
+      margin-right: 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .skills span:hover {
+      transform: scale(1.2);
+      background-color: #ff0090;
+    }
+
+
+    .services-container {
+      text-align: center;
+      max-width: 1867px;
+      padding: 40px 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .services-container h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .services-container p {
+      font-size: 16px;
+      margin-bottom: 40px;
+      color: #ccc;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background-color: #1f093b;
+      padding: 30px 20px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      background-color: #ff58da;
+    }
+
+    /* .service-card.active {
+      background: linear-gradient(145deg, #ff58da, #c800e2);
+      transform: translateY(-10px);
+    } */
+
+    .service-card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #e0e0e0;
+    }
+
+    .pagination {
+      margin-top: 20px;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #888;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #ff58da;
+    }
+
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1f1f1f;
+      margin-top: 40px;
+    }
+     * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #1a0028, #3d0057);
+      color: #fff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 60px;
+    }
+
+    .subheading {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1em;
+      color: #c7a3ff;
+    }
+
+    .projects {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 40px 10%;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .projects::-webkit-scrollbar {
+      display: none;
+    }
+
+    .project-card {
+      flex: 0 0 auto;
+      width: 250px;
+      background: #2d0044;
+      border-radius: 20px;
+      overflow: hidden;
+      scroll-snap-align: start;
+      transition: transform 0.4s ease, background 0.4s ease;
+      position: relative;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      background: #3e0066;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .project-type {
+      font-size: 0.8em;
+      color: #e0b3ff;
+      background: #48006a;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      font-size: 0.9em;
+      color: #ddd;
+    }
+
+    .see-all-btn {
+      display: block;
+      margin: 40px auto;
+      padding: 12px 30px;
+      border: none;
+      background: #ff58da;
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes zoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.project-card {
+  animation: zoomFade 0.6s ease forwards;
+}
+
+ body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #160028, #3d0057);
+      color: #fff;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 60px 10%;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .contact-text {
+      flex: 1 1 300px;
+    }
+
+    .contact-text h2 {
+      font-size: 2em;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .contact-text span {
+      display: inline-block;
+      font-size: 1.2em;
+      background: linear-gradient(to right, #ff58da, #c78fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-form {
+      flex: 1 1 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 18px;
+      border: 2px solid #555;
+      border-radius: 8px;
+      background: transparent;
+      color: #fff;
+      font-size: 1em;
+      transition: border 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-image: linear-gradient(to right, #ff58da, #ffcaff);
+      border-image-slice: 1;
+    }
+
+    .contact-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: linear-gradient(to right, #ff58da, #a758ff);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-form {
+        width: 100%;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      /* background: #000; */
+      color: white;
+    }
+
+    .thankyou-section {
+      background: radial-gradient(circle at center, #a24dff, #23002c);
+      text-align: center;
+      padding: 120px 20px 100px;
+      position: relative;
+    }
+
+    .thankyou-section h1 {
+      font-size: 3em;
+      font-weight: 600;
+      color: white;
+    }
+
+    .stars {
+      position: absolute;
+      top: 50%;
+      right: 25%;
+      transform: translateY(-50%);
+    }
+
+    .stars img {
+      width: 40px;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(-5px); }
+      50% { transform: translateY(5px); }
+    }
+
+    .footer-meta {
+      background: black;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+
+    .footer-meta .like-circle {
+      background: #0073ff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .footer-meta h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: white;
+    }
+
+    .footer-meta .meta-info {
+      margin-top: 10px;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    .footer-meta .meta-info i {
+      margin: 0 6px;
+    }
+
+    .footer-meta .published {
+      color: #888;
+      font-size: 0.8em;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#">Services</a>
+      <a href="#">My Projects</a>
+      <a href="#">Reviews</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="main-section">
+    <div class="text-content">
+      <h2>WELCOME TO MY WORLD ✨</h2>
+      <h1>Hi, I'm Subhakant Sahu</h1>
+      <h3>UI & UX Designer</h3>
+      <p>
+        Passionate UI/UX designer, I create intuitive and visually appealing digital experiences. I transform ideas into
+        seamless designs that meet users' expectations.
+      </p>
+      <div class="buttons">
+        <a href="#" class="btn-primary">My Projects</a>
+        <a href="SUBHAKANTA SAHU CV.pdf" class="btn-secondary">Download CV</a>
+      </div>
+      <div class="social-icons" style="margin-top: 20px;">
+        <a href="#">🌐</a>
+        <a href="#">💼</a>
+        <a href="#">📸</a>
+        <a href="#">🔗</a>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="subha.jpeg" alt="Profile Image">
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-image">
+      <img src="subha.jpeg" alt="Profile Image">
+    </div>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>
+        Welcome to my portfolio! I’m Sara Howari, a passionate UI/UX designer dedicated to creating seamless and
+        visually engaging digital experiences.
+        With 2 years of experience, I specialize in designing intuitive interfaces that enhance usability and user
+        satisfaction.
+      </p>
+      <p>
+        My skills include wireframing, prototyping, and user research, ensuring that each design is both aesthetically
+        pleasing and functionally efficient.
+        I have worked on diverse projects, including mobile apps, web platforms, and interactive dashboards, always
+        focusing on user-centered solutions that drive engagement.
+      </p>
+      <p>✨ I am deeply committed to my work, investing creativity and precision into every project to ensure a unique
+        and effective user experience.</p>
+
+      <h3 style="margin-top: 20px;">Skills</h3>
+      <div class="skills">
+        <span>UI</span>
+        <span>UX</span>
+        <span>AI</span>
+        <span>PS</span>
+        <span>Xd</span>
+      </div>
+    </div>
+  </section>
+  <section class="services-container">
+    <h2>Services</h2>
+    <p>Transforming ideas into intuitive digital experiences</p>
+
+    <div class="services-grid">
+      <div class="service-card active">
+        <h3>Web Design</h3>
+        <p>Designing responsive and engaging websites tailored to user needs.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>UI/UX</h3>
+        <p>Creating intuitive and visually appealing designs that enhance user experience.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>App Design</h3>
+        <p>Crafting seamless and user-friendly mobile app interfaces.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Prototyping & Wireframing</h3>
+        <p>Building interactive prototypes and structured wireframes for better design flow.</p>
+      </div>
+        <!-- <div class="service-card active">
+          <h3>Web Design</h3>
+          <p>Designing responsive and engaging websites tailored to user needs.</p>
+        </div> -->
+    </div>
+
+    <!-- <div class="pagination">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div> -->
+  </section>
+  <!-- <footer>
+    © 2025 Subhakant Sahu. All rights reserved.
+  </footer> -->
+<body>
+  <section id="projects">
+    <h2 class="section-title">My Projects</h2>
+    <p class="subheading">Discover the projects that showcase my passion for design and innovation</p>
+    <div class="projects scroll-reveal">
+      <div class="project-card">
+        <img class="project-image" src="https://i.ibb.co/vQP3PY1/project1.png" alt="Amaksora App">
+        <div class="project-content">
+          <div class="project-title">Amaksora App</div>
+          <div class="project-type">App Design</div>
+          <div class="project-desc">Creating intuitive and visually appealing designs that enhance user experience.</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img class="project-image" src="https://i.ibb.co/1vPVJGC/project2.png" alt="Homy App">
+        <div class="project-content">
+          <div class="project-title">Homy App</div>
+          <div class="project-type">App Design</div>
+          <div class="project-desc">Creating intuitive and visually appealing designs that enhance user experience.</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img class="project-image" src="subha.jpeg" alt="B-Roll Media">
+        <div class="project-content">
+          <div class="project-title">B-Roll Media</div>
+          <div class="project-type">Web Design</div>
+          <div class="project-desc">Designing intuitive and visually engaging websites that elevate user experience.</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img class="project-image" src="https://i.ibb.co/xg0QGTD/project4.png" alt="Finance UI">
+        <div class="project-content">
+          <div class="project-title">Finance UI</div>
+          <div class="project-type">Web Design</div>
+          <div class="project-desc">Building finance interfaces that are both attractive and user-friendly.</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="see-all-btn">See All →</button>
+  </section>
+
+  <script>
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    const cards = document.querySelectorAll('.project-card');
+
+    const revealOnScroll = () => {
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          card.style.animationDelay = `${index * 0.2}s`;
+          card.style.opacity = 1;
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+<body>
+  <section class="contact-section">
+    <div class="contact-text">
+      <h2>💡 <span>Let’s Create Something Amazing</span> Together</h2>
+      <img src="https://i.ibb.co/y6GM1g9/wave-line.png" alt="wave" width="120" />
+    </div>
+
+    <form class="contact-form">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Enter message" required></textarea>
+      </div>
+      <button type="submit">✉️ Send Message</button>
+    </form>
+  </section>
+</body>
+</body>
+<body>
+
+  <div class="thankyou-section">
+    <h1>Thanks for<br>watching</h1>
+    <div class="stars">
+      <img src="subha.jpeg" alt="star" />
+    </div>
+  </div>
+
+  <div class="footer-meta">
+    <div class="like-circle">👍</div>
+    <h2>Portfolio</h2>
+    <div class="meta-info">
+      👍 107 &nbsp; • &nbsp; 👁️ 3.4K &nbsp; • &nbsp; 💬 2
+    </div>
+    <div class="published">Published: April 6th 2025</div>
+  </div>
+
+</body>
+
+</html>
